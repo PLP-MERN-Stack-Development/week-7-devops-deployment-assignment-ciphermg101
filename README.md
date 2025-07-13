@@ -1,78 +1,171 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19932637&assignment_repo_type=AssignmentRepo)
-# Deployment and DevOps for MERN Applications
+# Career Guidance Platform (MERN)
 
-This assignment focuses on deploying a full MERN stack application to production, implementing CI/CD pipelines, and setting up monitoring for your application.
+## Overview
+A full-stack MERN application for exploring tech career paths, with a modern, animated, and responsive UI.
 
-## Assignment Overview
+## Project Structure
+```
+/
+  client/      # React + Vite + Tailwind + shadcn/ui (TypeScript, production-ready)
+    src/
+      components/
+      pages/
+      lib/
+      index.css
+      App.tsx
+      main.jsx
+    .env.example
+    package.json
+    ...
+  server/      # Express + TypeScript + MongoDB (production-ready)
+    src/
+      models/
+      routes/
+      index.ts
+    .env.example
+    package.json
+    ...
+  README.md    # This file
+  DEPLOYMENT.md # Deployment guide
+```
 
-You will:
-1. Prepare your MERN application for production deployment
-2. Deploy the backend to a cloud platform
-3. Deploy the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implement monitoring and maintenance strategies
+## Features
+- Browse careers by category
+- Search/filter roles
+- Career detail modals
+- Admin dashboard (add/edit careers, categories, resources)
+- Production-ready backend (Express + MongoDB)
+- Modern frontend (React + Tailwind + shadcn/ui)
+- CI/CD, monitoring, and deployment ready
+
+## 🚀 Live URLs
+
+### Production Deployment
+- **Frontend**: [https://your-app-name.vercel.app](https://your-app-name.vercel.app)
+- **Backend API**: [https://career-guide-api.onrender.com](https://career-guide-api.onrender.com)
+- **API Health Check**: [https://career-guide-api.onrender.com/health](https://career-guide-api.onrender.com/health)
+
+### API Endpoints
+- Categories: `GET /api/categories`
+- Careers: `GET /api/careers`
+- Resources: `GET /api/resources`
+- Health: `GET /health`
 
 ## Getting Started
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
-4. Use the provided templates and configuration files as a starting point
+### Prerequisites
+- Node.js (v18+)
+- MongoDB Atlas account
+- Vercel/Netlify (frontend deployment)
+- Render/Railway/Heroku (backend deployment)
 
-## Files Included
+### Environment Variables
+- Copy `.env.example` in both `/client` and `/server` to `.env` and fill in values.
 
-- `Week7-Assignment.md`: Detailed assignment instructions
-- `.github/workflows/`: GitHub Actions workflow templates
-- `deployment/`: Deployment configuration files and scripts
-- `.env.example`: Example environment variable templates
-- `monitoring/`: Monitoring configuration examples
+#### Example `/client/.env`:
+```
+VITE_API_URL=http://localhost:5000/api
+VITE_SENTRY_DSN=your_sentry_dsn
+```
 
-## Requirements
+#### Example `/server/.env`:
+```
+MONGODB_URI=your_mongodb_atlas_uri
+JWT_SECRET=your_jwt_secret
+NODE_ENV=production
+PORT=5000
+SENTRY_DSN=your_sentry_dsn
+```
 
-- A completed MERN stack application from previous weeks
-- Accounts on the following services:
-  - GitHub
-  - MongoDB Atlas
-  - Render, Railway, or Heroku (for backend)
-  - Vercel, Netlify, or GitHub Pages (for frontend)
-- Basic understanding of CI/CD concepts
+### Running Locally
 
-## Deployment Platforms
+#### Backend
+```
+cd server
+npm install
+npm run dev
+```
 
-### Backend Deployment Options
-- **Render**: Easy to use, free tier available
-- **Railway**: Developer-friendly, generous free tier
-- **Heroku**: Well-established, extensive documentation
+#### Frontend
+```
+cd client
+npm install
+npm run dev
+```
 
-### Frontend Deployment Options
-- **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
+## 🚀 Deployment
 
-## CI/CD Pipeline
+### Quick Deploy
+1. **Backend (Render)**: Follow the [deployment guide](DEPLOYMENT.md#backend-deployment-render)
+2. **Frontend (Vercel)**: Follow the [deployment guide](DEPLOYMENT.md#frontend-deployment-vercel)
+3. **CI/CD**: Set up GitHub Actions for automatic deployments
 
-The assignment includes templates for setting up GitHub Actions workflows:
-- `frontend-ci.yml`: Tests and builds the React application
-- `backend-ci.yml`: Tests the Express.js backend
-- `frontend-cd.yml`: Deploys the frontend to your chosen platform
-- `backend-cd.yml`: Deploys the backend to your chosen platform
+### Manual Deployment Steps
+1. Deploy backend to Render
+2. Deploy frontend to Vercel
+3. Configure environment variables
+4. Update CORS settings
+5. Test integration
 
-## Submission
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+## 📊 Monitoring & CI/CD
 
-1. Complete all deployment tasks
-2. Set up CI/CD pipelines with GitHub Actions
-3. Deploy both frontend and backend to production
-4. Document your deployment process in the README.md
-5. Include screenshots of your CI/CD pipeline in action
-6. Add URLs to your deployed applications
+### GitHub Actions
+- Automated testing on pull requests
+- Automatic deployment on main branch
+- Linting and code quality checks
 
-## Resources
+### Monitoring
+- Sentry for error tracking
+- Health check endpoints
+- Uptime monitoring
 
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/)
-- [Render Documentation](https://render.com/docs)
-- [Railway Documentation](https://docs.railway.app/)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Netlify Documentation](https://docs.netlify.com/) 
+### Performance
+- Code splitting for better performance
+- Compression and caching
+- Optimized builds
+
+## 🛠️ Development
+
+### Available Scripts
+
+#### Backend
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm start        # Start production server
+npm run lint     # Run ESLint
+```
+
+#### Frontend
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Run ESLint
+```
+
+### Database Seeding
+```bash
+cd server
+npm run seed     # Seed database with sample data
+```
+
+## 📱 Screenshots
+- ![App Screenshot](screenshots/app.png)
+- ![CI/CD Pipeline](screenshots/cicd.png)
+
+## 🔧 Maintenance
+- Regular updates and patches
+- Database backups
+- Documented rollback procedures
+- Performance monitoring
+
+## 📄 License
+This project is part of the Week 7 DevOps Deployment Assignment.
+
+---
+
+**Note**: Replace `your-app-name.vercel.app` and `career-guide-api.onrender.com` with your actual deployed URLs after deployment. 
